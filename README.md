@@ -60,71 +60,71 @@ This is the official repository for **FieldGuideVision** Android/iOS application
 
 		- Replace **Ocp-Apim-Subscription-Key** with your own key.
 
-- **/lib/pages/help_page.dart**:
-
-	- This is the help page component for explaining tips to maximize the effectiveness/accuracy of Field Guide Vision.
-
-- **/lib/pages/home_page.dart**:
-
-	- This is the home (landing) page of the FieldGuideVision App.
-
-- **/lib/pages/image_confirmation_popup.dart**:
-
-	- This is the home page popup component.
-
-- **/lib/pages/image_enhancement_page.dart**:
-
-	- This file holds the components for the Image Enhancement page.
-
-- **/lib/pages/image_manual_page.dart**:
-	- Main code for housing the manual image enhancement page components.
-
-- **/lib/pages/text_translation_page.dart**:
-
-	- The text translation page that houses the components and widgets for the text translation page.
-
-  
-  
-
-3. Brief top level of the **/lib/utils**:
-
-- **/lib/utils/awstranslate.dart**:
-
-	- This file holds the main backend functionality for the Amazon translation API calls the app makes.
-
-	- Replace **accesskey** in translateText function with AWS account credentials.
-
-	- Replace **secretkey** in translateText function with AWS account credentials.
-
-  
-
-- **/lib/utils/azuretranslate.dart**:
-
-	- This file holds the main backend functionality for the Microsoft translation API calls the app makes.
-
-	- Replace the uri string in **translateText** function with your own Azure account API link.
-
-	- Replace **Ocp-Apim-Subscription-Key** in translateText function, headers variable with your own Azure account key.
-
-  
-- **/lib/utils/googletranslate.dart**:
-
-	- This file holds the main backend functionality for the Amazon translation API calls the app makes.
-	- Replace **client_id**, **private_key_id**, **private_key** and **client_email** in the credentials variable with your own Google account credentials.
-
-  
-
-- **/lib/utils/image_enhancement.dart**:
-
-	- This file holds the main backend functionality for the image enhancement techniques we employ.
-
- 
-- **/lib/utils/location_dictionary.dart**:
-
-	- This class handles the backend location-based features of the application.
-
-  
-
-- **/lib/utils/manual_adjust.dart**:
-
-	- This file provides methods for the manual enhancement of images on the **/lib/utils/image_manual_page.dart**.
+    - **/lib/pages/help_page.dart**:
+    
+    	- This is the help page component for explaining tips to maximize the effectiveness/accuracy of Field Guide Vision.
+    
+    - **/lib/pages/home_page.dart**:
+    
+    	- This is the home (landing) page of the FieldGuideVision App.
+    
+    - **/lib/pages/image_confirmation_popup.dart**:
+    
+    	- This is the home page popup component.
+    
+    - **/lib/pages/image_enhancement_page.dart**:
+    
+    	- This file holds the components for the Image Enhancement page.
+    
+    - **/lib/pages/image_manual_page.dart**:
+    	- Main code for housing the manual image enhancement page components.
+    
+    - **/lib/pages/text_translation_page.dart**:
+    
+    	- The text translation page that houses the components and widgets for the text translation page.
+    
+    
+    
+    
+    3. Brief top level of the **/lib/utils**:
+    
+    - **/lib/utils/awstranslate.dart**:
+    
+    	- This file holds the main backend functionality for the Amazon translation API calls the app makes.
+    
+    	- Replace **accesskey** in translateText function with AWS account credentials.
+    
+    	- Replace **secretkey** in translateText function with AWS account credentials.
+    
+    
+    
+    - **/lib/utils/azuretranslate.dart**:
+    
+    	- This file holds the main backend functionality for the Microsoft translation API calls the app makes.
+    
+    	- Replace the uri string in **translateText** function with your own Azure account API link.
+    
+    	- Replace **Ocp-Apim-Subscription-Key** in translateText function, headers variable with your own Azure account key.
+    
+    
+    - **/lib/utils/googletranslate.dart**:
+    
+    	- This file holds the main backend functionality for the Amazon translation API calls the app makes.
+    	- Replace **client_id**, **private_key_id**, **private_key** and **client_email** in the credentials variable with your own Google account credentials.
+    
+    
+    
+    - **/lib/utils/image_enhancement.dart**:
+    
+    	- This file holds the main backend functionality for the image enhancement techniques we employ.
+    
+    
+    - **/lib/utils/location_dictionary.dart**:
+    
+    	- This class handles the backend location-based features of the application.
+    
+    
+    
+    - **/lib/utils/manual_adjust.dart**:
+    
+    	- This file provides methods for the manual enhancement of images on the **/lib/utils/image_manual_page.dart**.
