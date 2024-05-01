@@ -1,7 +1,7 @@
 
 # FieldGuideVision
 
-This is the official repository for **FieldGuideVision** Android/iOS application. This application translates images of National Standard Road and Street signs from Arabic into English.
+This is the official repository for **FieldGuideVision** Android/iOS application. This application translates images of National Standard Road and Street signs from Arabic into English. Sponsored by **C5ISR DEVCOM CENTER**, done for the **Virgina Tech ECE Major Design Experience** between 2023-2024.
 
   
 ## Prerequisites
