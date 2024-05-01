@@ -1,0 +1,191 @@
+@startuml
+set namespaceSeparator ::
+
+class "field_guide_vision::main.dart::MdeApp" {
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "field_guide_vision::main.dart::MdeApp"
+
+class "field_guide_vision::pages::extracted_text.dart::ExtractedTextPage" {
+  +String imagePath
+  +Uint8List originalImageBytes
+  +State<ExtractedTextPage> createState()
+}
+
+"field_guide_vision::pages::extracted_text.dart::ExtractedTextPage" o-- "dart::typed_data::Uint8List"
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "field_guide_vision::pages::extracted_text.dart::ExtractedTextPage"
+
+class "field_guide_vision::pages::extracted_text.dart::_ExtractedTextPageState" {
+  -String _extractedText
+  +void initState()
+  -dynamic _extractTextFromImage()
+  -dynamic _getImageBytes()
+  -String _parseOcrResult()
+  +bool isArabic()
+  -dynamic _sendExtractedText()
+  -PreferredSizeWidget _buildAppBar()
+  -Widget _buildBody()
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "field_guide_vision::pages::extracted_text.dart::_ExtractedTextPageState"
+
+class "field_guide_vision::pages::help_page.dart::HelpPage" {
+  -PreferredSizeWidget _buildAppBar()
+  -Widget _buildBody()
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "field_guide_vision::pages::help_page.dart::HelpPage"
+
+class "field_guide_vision::pages::home_page.dart::HomePage" {
+  +HomePageState createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "field_guide_vision::pages::home_page.dart::HomePage"
+
+class "field_guide_vision::pages::home_page.dart::HomePageState" {
+  -String? _imagePath
+  -dynamic _openGallery()
+  -dynamic _openCamera()
+  -PreferredSizeWidget _buildAppBar()
+  -Widget _getWelcome()
+  -Widget _getSourceRequest()
+  -dynamic _cropImage()
+  -void _showImagePopup()
+  -Widget _getButtons()
+  +Widget buildBody()
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "field_guide_vision::pages::home_page.dart::HomePageState"
+
+class "field_guide_vision::pages::image_confirmation_popup.dart::ImagePopup" {
+  +String imagePath
+  +void Function() onProceed
+  +void Function() onChangePhoto
+  +Widget build()
+}
+
+"field_guide_vision::pages::image_confirmation_popup.dart::ImagePopup" o-- "dart::ui::void Function()"
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "field_guide_vision::pages::image_confirmation_popup.dart::ImagePopup"
+
+class "field_guide_vision::pages::image_enhancement_page.dart::EnhancePage" {
+  +CroppedFile? croppedFile
+  +State<EnhancePage> createState()
+}
+
+"field_guide_vision::pages::image_enhancement_page.dart::EnhancePage" o-- "image_cropper_platform_interface::src::models::cropped_file::unsupported.dart::CroppedFile" 
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "field_guide_vision::pages::image_enhancement_page.dart::EnhancePage"
+
+class "field_guide_vision::pages::image_enhancement_page.dart::_EnhancePageState" {
+  +XFile? enhancedImageAuto
+  -dynamic _enhanceFuture
+  +Uint8List? originalImageBytes
+  +void initState()
+  -dynamic _enhanceImage()
+  +dynamic saveEnhancedImage()
+  -void _navigateAndExtractText()
+  -PreferredSizeWidget _buildAppBar()
+  -Widget _getButtons()
+  -Widget _getImage()
+  -Widget _buildBody()
+  +Widget build()
+}
+
+"field_guide_vision::pages::image_enhancement_page.dart::_EnhancePageState" o-- "cross_file::src::types::interface.dart::XFile"
+"field_guide_vision::pages::image_enhancement_page.dart::_EnhancePageState" o-- "dart::typed_data::Uint8List"
+"flutter::src::widgets::framework.dart::State" <|-- "field_guide_vision::pages::image_enhancement_page.dart::_EnhancePageState"
+
+class "field_guide_vision::pages::image_manual_page.dart::ImageEnhancePage" {
+  +Uint8List originalImageBytes
+  +State<ImageEnhancePage> createState()
+}
+
+"field_guide_vision::pages::image_manual_page.dart::ImageEnhancePage" o-- "dart::typed_data::Uint8List"
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "field_guide_vision::pages::image_manual_page.dart::ImageEnhancePage"
+
+class "field_guide_vision::pages::image_manual_page.dart::_ImageEnhancePageState" {
+  -Timer? _debounce
+  -double _brightnessDouble
+  -int _brightness
+  -double _contrastDouble
+  -Uint8List? _enhancedImageBytes
+  +void initState()
+  +void dispose()
+  -void _updateImage()
+  -void _onBrightnessChanged()
+  -void _onContrastChanged()
+  -void _debounceImageProcessing()
+  +dynamic saveAdjustedImageToFile()
+  -PreferredSizeWidget _buildAppBar()
+  -Widget _buildBody()
+  +Widget build()
+}
+
+"field_guide_vision::pages::image_manual_page.dart::_ImageEnhancePageState" o-- "dart::async::Timer"
+"field_guide_vision::pages::image_manual_page.dart::_ImageEnhancePageState" o-- "dart::typed_data::Uint8List"
+"flutter::src::widgets::framework.dart::State" <|-- "field_guide_vision::pages::image_manual_page.dart::_ImageEnhancePageState"
+
+class "field_guide_vision::pages::text_translation_page.dart::TranslatedTextPage" {
+  +String extractedtext
+  +State<TranslatedTextPage> createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "field_guide_vision::pages::text_translation_page.dart::TranslatedTextPage"
+
+class "field_guide_vision::pages::text_translation_page.dart::_TranslatedTextPageState" {
+  +String? googletextranslation
+  +String? azuretextranslation
+  +String? awstextranslation
+  +String sourceLanguageCode
+  +String targetLanguageCode
+  +bool translationsVisible
+  +bool dictionarymatch
+  +List<String> foundlocations
+  +void initState()
+  -PreferredSizeWidget _buildAppBar()
+  -dynamic _maketranslationvisible()
+  +dynamic parseAndReplaceText()
+  +dynamic AWStranslate()
+  +dynamic Azuretranslate()
+  +dynamic Googletranslate()
+  -Widget _displayGoogleTranslation()
+  -Widget _displayAWSTranslation()
+  -Widget _displayAzureTranslation()
+  -Widget _displayAltTranslations()
+  -Widget _displayNoAltTranslations()
+  -Widget _getButtons()
+  -dynamic _getStreet()
+  -dynamic _displayCurrentStreet()
+  +dynamic getStreetsWithinRadius()
+  -Widget _buildBody()
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "field_guide_vision::pages::text_translation_page.dart::_TranslatedTextPageState"
+
+class "field_guide_vision::utils::awstranslate.dart::AwsTranslateService" {
+  +dynamic translateText()
+}
+
+class "field_guide_vision::utils::azuretranslate.dart::AzureTranslateService" {
+  +dynamic translateText()
+}
+
+class "field_guide_vision::utils::googletranslate.dart::GoogleTranslateService" {
+  +String? accessToken
+  +DateTime? tokenExpirationTime
+  +dynamic getAccessToken()
+  +dynamic translateText()
+}
+
+class "field_guide_vision::utils::image_enhancement.dart::AutoEnhanceInput" {
+  +Uint8List imageBytes
+}
+
+"field_guide_vision::utils::image_enhancement.dart::AutoEnhanceInput" o-- "dart::typed_data::Uint8List"
+
+
+@enduml
